@@ -4,6 +4,10 @@ import { useThemeStore } from '../store/themeStore';
 export const Footer: React.FC = () => {
   const isDarkMode = useThemeStore((state) => state.isDarkMode);
 
+  const handleContactClick = () => {
+    window.location.href = 'tel:+1234567890';
+  };
+
   return (
     <footer className={`${isDarkMode ? 'bg-gray-800 text-gray-200' : 'bg-gray-100 text-gray-600'} py-4`}>
       <div className="max-w-7xl mx-auto px-4">
@@ -16,8 +20,8 @@ export const Footer: React.FC = () => {
             <a href="/terms" className="hover:text-blue-500">Terms</a>
           </div>
           <div className="flex items-center space-x-4">
-            <a href="https://github.com" className="hover:text-blue-500">GitHub</a>
-            <a href="mailto:info@example.com" className="hover:text-blue-500">Contact</a>
+            <a href="https://github.com/ArinNigam/VRV-Security" className="hover:text-blue-500">GitHub</a>
+            <a href="#" onClick={handleContactClick} className="hover:text-blue-500">Contact</a>
           </div>
         </div>
       </div>
