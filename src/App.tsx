@@ -1,13 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { AppRoutes } from './routes/AppRoutes';
 import { useThemeStore } from './store/themeStore';
+import { useAuthStore } from './store/authStore';
 
 function App() {
   const isDarkMode = useThemeStore((state) => state.isDarkMode);
+  const initAuth = useAuthStore((state) => state.initAuth);
+
+  useEffect(() => {
+    initAuth();
+  }, [initAuth]);
 
   return (
     <Router>
